@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__MCP_DOCKER__brave_web_search",
+      "mcp__MCP_DOCKER__fetch",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(npx create-next-app@latest meta-ads-ai-app --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --turbopack --eslint)",
+      "Bash(npm install:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
