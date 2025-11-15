@@ -6,7 +6,16 @@
       "WebFetch(domain:github.com)",
       "WebSearch",
       "Bash(npx create-next-app@latest meta-ads-ai-app --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --turbopack --eslint)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(cmd /c start-mcp-server.bat)",
+      "Bash(python -m meta_ads_mcp:*)",
+      "Bash(py --version)",
+      "Bash(py -m meta_ads_mcp:*)",
+      "Bash(pip install:*)",
+      "Bash(py -m pip install:*)",
+      "Bash(set:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

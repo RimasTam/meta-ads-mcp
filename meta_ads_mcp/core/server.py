@@ -276,7 +276,7 @@ def main():
     pipeboard_api_token = os.environ.get("PIPEBOARD_API_TOKEN")
     if pipeboard_api_token:
         logger.info("Using Pipeboard authentication")
-        print("✅ Pipeboard authentication enabled")
+        print("[OK] Pipeboard authentication enabled")
         print(f"   API token: {pipeboard_api_token[:8]}...{pipeboard_api_token[-4:]}")
         # Check for existing token
         token = pipeboard_auth_manager.get_access_token()
@@ -315,7 +315,7 @@ def main():
                 logger.error(f"Error initiating browser-based authentication: {e}")
                 print(f"Error: Could not start authentication: {e}")
         else:
-            print(f"✅ Valid Pipeboard access token found")
+            print(f"[OK] Valid Pipeboard access token found")
             print(f"   Token preview: {token[:10]}...{token[-5:]}")
     
     # Transport-specific server initialization and startup
@@ -351,13 +351,13 @@ def main():
             # Setup the FastMCP HTTP auth integration
             setup_fastmcp_http_auth(mcp_server)
             logger.info("FastMCP HTTP authentication integration setup successful")
-            print("✅ FastMCP HTTP authentication integration enabled")
+            print("[OK] FastMCP HTTP authentication integration enabled")
             print("   - Bearer tokens via Authorization: Bearer <token> header")
             print("   - Direct Meta tokens via X-META-ACCESS-TOKEN header")
-            
+
         except Exception as e:
             logger.error(f"Failed to setup FastMCP HTTP authentication integration: {e}")
-            print(f"⚠️  FastMCP HTTP authentication integration setup failed: {e}")
+            print(f"[WARNING] FastMCP HTTP authentication integration setup failed: {e}")
             print("   Server will still start but may not support header-based auth")
         
         # Log final server configuration
@@ -371,7 +371,7 @@ def main():
         # Start the FastMCP server with Streamable HTTP transport
         try:
             logger.info("Starting FastMCP server with Streamable HTTP transport")
-            print(f"✅ Server configured successfully")
+            print(f"[OK] Server configured successfully")
             print(f"   URL: http://{args.host}:{args.port}{mcp_server.settings.streamable_http_path}/")
             print(f"   Mode: {'Stateless' if mcp_server.settings.stateless_http else 'Stateful'}")
             print(f"   Format: {'JSON' if mcp_server.settings.json_response else 'SSE'}")
