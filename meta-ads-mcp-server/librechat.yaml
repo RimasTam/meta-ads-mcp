@@ -1,0 +1,95 @@
+version: 1.1.8
+
+# LibreChat Configuration for Kimi K2 + Meta Ads MCP Server
+# This file should be hosted on a publicly accessible URL (e.g., GitHub raw URL)
+# Set CONFIG_PATH environment variable in Railway to point to this file
+
+# Custom Endpoints Configuration
+endpoints:
+  custom:
+    # Kimi K2 (Moonshot AI) Configuration
+    - name: "Kimi K2"
+      apiKey: "${KIMI_API_KEY}"
+      baseURL: "https://api.moonshot.ai/v1"
+      models:
+        default:
+          - "kimi-k2-0711"
+          - "kimi-k2-thinking"
+          - "kimi-k2-thinking-turbo"
+        fetch: true  # Auto-fetch available models from Moonshot API
+      titleConvo: true
+      titleModel: "kimi-k2-0711"
+      modelDisplayLabel: "Kimi K2"
+      summarize: false
+      summaryModel: "kimi-k2-0711"
+      forcePrompt: false
+      # Kimi API is OpenAI-compatible, no special parameters needed
+      # Note: Kimi uses temperature * 0.6 scaling internally
+
+# MCP (Model Context Protocol) Servers Configuration
+mcpServers:
+  # Meta Ads MCP Server
+  # This connects LibreChat to your Meta Advertising tools
+  meta-ads:
+    type: streamable-http  # HTTP-based MCP server (deployed on Railway)
+    url: "${META_ADS_MCP_URL}/mcp"  # Replace with your Railway URL after deployment
+    headers:
+      # Authentication using Meta Access Token
+      X-META-ACCESS-TOKEN: "${META_ACCESS_TOKEN}"
+    timeout: 30000  # 30 seconds timeout for API calls
+    serverInstructions: true  # Use server-provided instructions
+    chatMenu: true  # Show in chat interface dropdown
+    # Available tools:
+    # - get_ad_accounts, get_account_info, get_account_pages
+    # - get_campaigns, create_campaign, update_campaign
+    # - get_adsets, create_adset, update_adset
+    # - get_ads, create_ad, update_ad
+    # - create_ad_creative, upload_ad_image
+    # - get_insights, search_interests, etc.
+
+# Interface Configuration
+interface:
+  # Privacy and data handling
+  privacyPolicy:
+    externalUrl: ""  # Add your privacy policy URL
+    openNewTab: true
+
+  # Terms of Service
+  termsOfService:
+    externalUrl: ""  # Add your terms of service URL
+    openNewTab: true
+
+# Registration and Authentication
+registration:
+  socialLogins: []  # Add OAuth providers if needed (google, github, discord, etc.)
+
+# File Handling
+fileConfig:
+  endpoints:
+    assistants:
+      fileLimit: 10
+      fileSizeLimit: 10  # MB
+      totalSizeLimit: 50  # MB
+    openAI:
+      fileLimit: 10
+      fileSizeLimit: 10
+      totalSizeLimit: 50
+    custom:
+      fileLimit: 10
+      fileSizeLimit: 10
+      totalSizeLimit: 50
+  serverFileSizeLimit: 100  # MB
+  avatarSizeLimit: 2  # MB
+
+# Rate Limiting (adjust based on your Railway plan)
+rateLimits:
+  fileUploads:
+    ipMax: 100
+    ipWindowInMinutes: 60
+    userMax: 50
+    userWindowInMinutes: 60
+  conversationsImport:
+    ipMax: 100
+    ipWindowInMinutes: 60
+    userMax: 50
+    userWindowInMinutes: 60

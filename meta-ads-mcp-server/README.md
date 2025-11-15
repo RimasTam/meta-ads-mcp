@@ -18,7 +18,8 @@ mcp-name: co.pipeboard/meta-ads-mcp
 ## Table of Contents
 
 - [🚀 Getting started with Remote MCP (Recommended for Marketers)](#getting-started-with-remote-mcp-recommended)
-- [Local Installation (Technical Users Only)](#local-installation-technical-users-only)
+- [Railway Deployment (Self-Hosted with LibreChat)](#railway-deployment-self-hosted-with-librechat)
+- [Local Installation (Advanced Technical Users Only)](#local-installation-advanced-technical-users-only)
 - [Features](#features)
 - [Configuration](#configuration)
 - [Available MCP Tools](#available-mcp-tools)
@@ -99,6 +100,35 @@ https://mcp.pipeboard.co/meta-ads-mcp?token=YOUR_PIPEBOARD_TOKEN
 ```
 
 This bypasses the interactive login flow and authenticates immediately. Get your token at [pipeboard.co/api-tokens](https://pipeboard.co/api-tokens).
+
+## Railway Deployment (Self-Hosted with LibreChat)
+
+🚀 **Want to self-host with LibreChat and Kimi K2?** We've created comprehensive guides for deploying Meta Ads MCP on Railway with LibreChat as your AI interface.
+
+### Quick Start for Railway
+
+1. **Follow the step-by-step guide**: See **[START_HERE.md](START_HERE.md)** for a complete walkthrough
+2. **Deploy to Railway**: Both Meta Ads MCP Server and LibreChat in ~30-45 minutes
+3. **Use Kimi K2 model**: Integrate Moonshot AI's powerful reasoning model
+4. **Full MCP integration**: All 29 Meta Ads tools available in LibreChat
+
+### Railway Deployment Documentation
+
+| Guide | Purpose |
+|-------|---------|
+| **[START_HERE.md](START_HERE.md)** | Step-by-step walkthrough with checkboxes - **start here!** |
+| **[DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)** | Complete deployment instructions with detailed explanations |
+| **[TESTING_GUIDE.md](TESTING_GUIDE.md)** | Comprehensive testing procedures after deployment |
+| **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** | Quick reference for URLs, environment variables, and commands |
+
+### What You'll Deploy
+
+- **Meta Ads MCP Server** on Railway (this repository)
+- **LibreChat** on Railway (AI chat interface)
+- **Kimi K2 Integration** (Moonshot AI model)
+- **Full MCP Tools Access** (all 29 tools via chat interface)
+
+See **[START_HERE.md](START_HERE.md)** to begin your Railway deployment!
 
 ## Local Installation (Advanced Technical Users Only)
 
